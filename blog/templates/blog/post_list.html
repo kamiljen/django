@@ -5,19 +5,36 @@
     <title>Ciekawy Artykuł</title>
 </head>
 <body>
-    <header>
-        <h1>Czym jest Lorem Ipsum?</h1>
-    </header>
-    <article>
+    <div>
+        <header>
+            <h1>Czym jest Lorem Ipsum?</h1>
+        </header>
+
+    </div>
+    <div>
+        <article>
+            <p>
+                Lorem Ipsum to fikcyjny tekst używany w przemyśle poligraficznym i wydawniczym do składu książek, czasopism i innych materiałów drukowanych. Tekst ten jest używany od XVI wieku i jest popularnym narzędziem do testowania układu i wyglądu strony internetowej.
+            </p>
+            <p>
+                Lorem Ipsum pochodzi z łacińskiego tekstu napisanego przez Cycerona w 45 roku p.n.e. Jest ono znormalizowanym tekstem, który został zmodyfikowany przez wieki. Popularność Lorem Ipsum zawdzięcza swojej przydatności w procesie projektowania, ponieważ pozbawione jest sensu i nie rozprasza uwagi czytelnika.
+            </p>
+            <p>
+                Dzięki Lorem Ipsum projektanci graficzni mogą ocenić, jak będzie wyglądać układ tekstu na stronie bez konieczności czekania na dostarczenie prawdziwej treści. Jest to również popularnym wyborem dla drukarzy w celu uzupełnienia pustych przestrzeni na stronach. Wielu programów do edycji tekstu i stron internetowych ma wbudowany generator Lorem Ipsum.
+            </p>
+        </article>
+    </div>
+    <div>
+        {% for post in posts %}
+    </div>
+    <div>
         <p>
-            Lorem Ipsum to fikcyjny tekst używany w przemyśle poligraficznym i wydawniczym do składu książek, czasopism i innych materiałów drukowanych. Tekst ten jest używany od XVI wieku i jest popularnym narzędziem do testowania układu i wyglądu strony internetowej.
+            opublikowany: {{ post.publish_date }}
         </p>
-        <p>
-            Lorem Ipsum pochodzi z łacińskiego tekstu napisanego przez Cycerona w 45 roku p.n.e. Jest ono znormalizowanym tekstem, który został zmodyfikowany przez wieki. Popularność Lorem Ipsum zawdzięcza swojej przydatności w procesie projektowania, ponieważ pozbawione jest sensu i nie rozprasza uwagi czytelnika.
-        </p>
-        <p>
-            Dzięki Lorem Ipsum projektanci graficzni mogą ocenić, jak będzie wyglądać układ tekstu na stronie bez konieczności czekania na dostarczenie prawdziwej treści. Jest to również popularnym wyborem dla drukarzy w celu uzupełnienia pustych przestrzeni na stronach. Wielu programów do edycji tekstu i stron internetowych ma wbudowany generator Lorem Ipsum.
-        </p>
-    </article>
+        <h2>
+            {{ post.title }}
+        </h2>
+    </div>
+    {% endfor %}
 </body>
 </html>

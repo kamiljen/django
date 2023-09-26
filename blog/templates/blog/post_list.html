@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Ciekawy Artykuł</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
-    <div>
-        <header>
-            <h1>Czym jest Lorem Ipsum?</h1>
-        </header>
+{% extends 'blog/base.html' %}
 
-    </div>
-    <div>
-        <article>
-            <p>
-                Lorem Ipsum to fikcyjny tekst używany w przemyśle poligraficznym i wydawniczym do składu książek, czasopism i innych materiałów drukowanych. Tekst ten jest używany od XVI wieku i jest popularnym narzędziem do testowania układu i wyglądu strony internetowej.
-            </p>
-            <p>
-                Lorem Ipsum pochodzi z łacińskiego tekstu napisanego przez Cycerona w 45 roku p.n.e. Jest ono znormalizowanym tekstem, który został zmodyfikowany przez wieki. Popularność Lorem Ipsum zawdzięcza swojej przydatności w procesie projektowania, ponieważ pozbawione jest sensu i nie rozprasza uwagi czytelnika.
-            </p>
-            <p>
-                Dzięki Lorem Ipsum projektanci graficzni mogą ocenić, jak będzie wyglądać układ tekstu na stronie bez konieczności czekania na dostarczenie prawdziwej treści. Jest to również popularnym wyborem dla drukarzy w celu uzupełnienia pustych przestrzeni na stronach. Wielu programów do edycji tekstu i stron internetowych ma wbudowany generator Lorem Ipsum.
-            </p>
-        </article>
-    </div>
-    <div>
-        {% for post in posts %}
-    </div>
-    <div>
-        <p>
-            opublikowany: {{ post.publish_date }}
-        </p>
-        <h2>
-            {{ post.title }}
-        </h2>
-    </div>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <em>{{ post.text|linebreaksbr }}</em>
+        </div>
+        <div class="date">
+            <p> opublikowany: {{ post.published_date }} </p>
+        </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
